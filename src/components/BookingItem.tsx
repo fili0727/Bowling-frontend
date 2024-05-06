@@ -7,6 +7,7 @@ export default function BookingItem({ booking }: { booking: Booking }) {
             <p>Here you can see a single booking</p>
             <p>Booking ID: {booking.id}</p>
             <p>Booking Location: {booking.bookingLocation.name}</p>
+            <p>Booking Activity: {booking.bookingLocation.activity}</p>
             <p>Amount of People: {booking.amountOfPeople}</p>
         </div>
     )
