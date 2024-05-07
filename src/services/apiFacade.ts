@@ -23,3 +23,20 @@ export async function getTablesApi(): Promise<BookingLocation[]> {
 
     return await handleHttpErrors(response)
 }
+
+export async function getAirhockeyApi(): Promise<BookingLocation[]> {
+    const options = makeOptions('GET', null)
+    const response = await fetch(
+        `${API_URL}/bookingLocations/airhockey`,
+        options
+    )
+
+    return await handleHttpErrors(response)
+}
+
+export async function getLanesApi(): Promise<BookingLocation[]> {
+    const options = makeOptions('GET', null)
+    const response = await fetch(`${API_URL}/bookingLocations/lanes`, options)
+
+    return await handleHttpErrors(response)
+}
