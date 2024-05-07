@@ -18,12 +18,10 @@ export default function BookingsList() {
     }, [])
 
     return (
-        <div>
-            <h1>Bookings List</h1>
-            <p>Here you can see all bookings</p>
-            <ul>
+        <div className="activity-list-container">
+            <ul className="activity-list">
                 {bookings.map((booking: Booking) => (
-                    <li key={booking.id}>
+                    <li className="activity-list-li" key={booking.id}>
                         <BookingItem booking={booking} />
                     </li>
                 ))}

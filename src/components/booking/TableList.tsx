@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import BookingLocation from '../../interfaces/BookingLocation'
 import { getTablesApi } from '../../services/apiFacade'
 import BookingLocationItem from './BookingLocationItem'
+import '../../styling/activityList.css'
 
 export default function TableList() {
     const [tables, setTables] = useState<BookingLocation[]>([])
@@ -16,12 +17,10 @@ export default function TableList() {
     }, [])
 
     return (
-        <div>
-            <h1>Tables</h1>
-            <p>Here you can see all tables</p>
-            <ul>
+        <div className="activity-list-container">
+            <ul className="activity-list">
                 {tables.map((table: BookingLocation) => (
-                    <li key={table.id}>
+                    <li className="activity-list-li" key={table.id}>
                         <BookingLocationItem bookingLocation={table} />
                     </li>
                 ))}

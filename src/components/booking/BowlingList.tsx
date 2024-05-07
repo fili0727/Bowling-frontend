@@ -16,12 +16,10 @@ export default function BowlingList() {
     }, [])
 
     return (
-        <div>
-            <h1>Bowling</h1>
-            <p>Here you can see all bowling lanes</p>
-            <ul>
+        <div className="activity-list-container">
+            <ul className="activity-list">
                 {lanes.map((lane: BookingLocation) => (
-                    <li key={lane.id}>
+                    <li className="activity-list-li" key={lane.id}>
                         <BookingLocationItem bookingLocation={lane} />
                     </li>
                 ))}

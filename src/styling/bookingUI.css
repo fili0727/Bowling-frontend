@@ -1,3 +1,18 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(241, 241, 240);
+}
+
+.booking-ui-container {
+    height: 500vh;
+}
+
+.booking-ui-header {
+    font-size: 5vh;
+    margin: 1vh;
+}
+
 .activity-buttons-container {
     display: flex;
     flex-direction: row;
@@ -5,8 +20,29 @@
 }
 
 .img-button {
-    width: 300px;
-    height: 300px;
+    width: 50vh;
+    height: 50vh;
     cursor: pointer;
-    border-radius: 150px;
+    border-radius: 50%;
+}
+
+@media (max-width: 1200px) {
+    .img-button {
+        width: 40vh; /* Adjust this value as needed */
+        height: 40vh; /* Adjust this value as needed */
+    }
+}
+
+@media (max-width: 900px) {
+    .img-button {
+        width: 30vh; /* Adjust this value as needed */
+        height: 30vh; /* Adjust this value as needed */
+    }
+}
+
+.booking-ui-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

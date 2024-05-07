@@ -16,12 +16,10 @@ export default function AirhockeyList() {
     }, [])
 
     return (
-        <div>
-            <h1>Airhockey</h1>
-            <p>Here you can see all airhockey stations</p>
-            <ul>
+        <div className="activity-list-container">
+            <ul className="activity-list">
                 {airhockey.map((station: BookingLocation) => (
-                    <li key={station.id}>
+                    <li className="activity-list-li" key={station.id}>
                         <BookingLocationItem bookingLocation={station} />
                     </li>
                 ))}

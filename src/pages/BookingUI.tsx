@@ -16,8 +16,10 @@ export default function BookingUI() {
 
     return (
         <div className="booking-ui-container">
-            <h1>Booking</h1>
-            <p>Here you can book an activity</p>
+            <div className="booking-ui-header">
+                <h1>Activities</h1>
+            </div>
+
             <div className="activity-buttons-container">
                 <div className="activity-button-container">
                     <img

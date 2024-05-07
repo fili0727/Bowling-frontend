@@ -1,7 +1,9 @@
 .bookingLocation-item-container {
     display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    padding: 10px;
-    border-radius: 10px;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(222, 236, 248);
+    border-radius: 1vh;
+    margin: 1vh;
+    font-weight: 500;
 }
