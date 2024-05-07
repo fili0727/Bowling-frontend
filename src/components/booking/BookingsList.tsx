@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { getBookingsApi } from '../services/apiFacade'
+import { getBookingsApi } from '../../services/apiFacade'
 import BookingItem from './BookingItem'
-import Booking from '../interfaces/Booking'
-import { API_URL } from '../settings'
+import Booking from '../../interfaces/Booking'
+import { API_URL } from '../../settings'
 
 export default function BookingsList() {
     const [bookings, setBookings] = useState<Booking[]>([])

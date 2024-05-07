@@ -1,4 +1,4 @@
-import Booking from '../interfaces/Booking'
+import Booking from '../../interfaces/Booking'
 
 export default function BookingItem({ booking }: { booking: Booking }) {
     // Convert bookingTime to a Date object
