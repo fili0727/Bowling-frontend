@@ -6,12 +6,13 @@ import { useState } from 'react'
 import AirhockeyList from '../components/booking/AirhockeyList'
 import '../styling/bookingUI.css'
 import BowlingList from '../components/booking/BowlingList'
+import WelcomeText from '../components/booking/WelcomeText'
 
 export default function BookingUI() {
-    const [activeList, setActiveList] = useState<string | null>(null)
+    const [activeList, setActiveList] = useState<string>('welcome')
 
     function handleToggleList(listName: string) {
-        setActiveList((prev) => (prev === listName ? null : listName))
+        setActiveList((prev) => (prev === listName ? 'welcome' : listName))
     }
 
     return (
@@ -43,6 +44,7 @@ export default function BookingUI() {
                     />
                 </div>
             </div>
+            {activeList === 'welcome' && <WelcomeText />}
             {activeList === 'dining' && <TableList />}
             {activeList === 'airhockey' && <AirhockeyList />}
             {activeList === 'lane' && <BowlingList />}

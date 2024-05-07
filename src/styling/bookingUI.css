@@ -4,12 +4,12 @@ body {
     background-color: rgb(241, 241, 240);
 }
 
-.booking-ui-container {
+/* .booking-ui-container {
     height: 500vh;
-}
+} */
 
 .booking-ui-header {
-    font-size: 5vh;
+    font-size: 4vh;
     margin: 1vh;
 }
 
@@ -17,23 +17,30 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-bottom: 5vh;
 }
 
 .img-button {
-    width: 50vh;
-    height: 50vh;
+    width: 45vh;
+    height: 45vh;
     cursor: pointer;
     border-radius: 50%;
+    transition: transform 0.5s;
+    box-shadow: 0vh 0vh 3vh 2vh rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 1200px) {
+.img-button:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 1000px) {
     .img-button {
-        width: 40vh; /* Adjust this value as needed */
-        height: 40vh; /* Adjust this value as needed */
+        width: 35vh; /* Adjust this value as needed */
+        height: 35vh; /* Adjust this value as needed */
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
     .img-button {
         width: 30vh; /* Adjust this value as needed */
         height: 30vh; /* Adjust this value as needed */
@@ -41,6 +48,13 @@ body {
 }
 
 .booking-ui-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.activities-welcome-text-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
