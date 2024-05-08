@@ -4,6 +4,8 @@ import { getTablesApi } from '../../services/apiFacade'
 import BookingLocationItem from './BookingLocationItem'
 import '../../styling/activityList.css'
 
+import DiningText from './DiningText'
+
 export default function TableList() {
     const [tables, setTables] = useState<BookingLocation[]>([])
 
@@ -18,6 +20,7 @@ export default function TableList() {
 
     return (
         <div className="activity-list-container">
+            <DiningText />
             <ul className="activity-list">
                 {tables.map((table: BookingLocation) => (
                     <li className="activity-list-li" key={table.id}>

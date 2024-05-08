@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import BookingLocation from '../../interfaces/BookingLocation'
 import { getAirhockeyApi } from '../../services/apiFacade'
 import BookingLocationItem from './BookingLocationItem'
+import AirhockeyText from './AirhockeyText'
 
 export default function AirhockeyList() {
     const [airhockey, setAirhockey] = useState<BookingLocation[]>([])
@@ -18,6 +19,7 @@ export default function AirhockeyList() {
     return (
         <div className="activity-list-container">
             <ul className="activity-list">
+                <AirhockeyText />
                 {airhockey.map((station: BookingLocation) => (
                     <li className="activity-list-li" key={station.id}>
                         <BookingLocationItem bookingLocation={station} />

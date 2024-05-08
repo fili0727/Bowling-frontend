@@ -3,6 +3,9 @@ import BookingUI from './pages/BookingUI'
 import Layout from './Layout'
 import Products from './pages/Products'
 import Admin from './pages/Admin'
+import BowlingList from './components/booking/BowlingList'
+import TableList from './components/booking/TableList'
+import AirhockeyList from './components/booking/AirhockeyList'
 
 export default function App() {
     return (
@@ -12,6 +15,9 @@ export default function App() {
                 <Route path="*" element={<Navigate to="/" />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/admin" element={<Admin />} />
+                <Route path="/bowling" element={<BowlingList />} />
+                <Route path="/dining" element={<TableList />} />
+                <Route path="/airhockey" element={<AirhockeyList />} />
             </Routes>
         </Layout>
     )

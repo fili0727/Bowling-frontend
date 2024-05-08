@@ -1,20 +1,35 @@
 .activities-welcome-text-container-h2 {
-    font-size: 3vh;
+    font-size: 7vh;
     color: #333; /* Dark gray color for the text */
     font-family: 'Arial', sans-serif; /* Sets the font of the text */
-    margin-top: 5vh; /* Space above the header */
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: 0;
 }
 
 .activities-welcome-text-container-p {
     font-size: 2.5vh;
-    margin-left: 30vh;
-    margin-right: 30vh;
+    margin-left: 20vh;
+    margin-right: 20vh;
     color: #333; /* Dark gray color for the text */
     line-height: 1.6; /* Spacing between lines */
-    text-align: justify; /* Aligns the text to both left and right margins */
+    text-align: left;
+    padding-bottom: 5vh;
+}
+
+.activities-welcome-text-paragraph {
     font-family: 'Arial', sans-serif; /* Sets the font of the text */
     background-color: #f9f9f9; /* Light gray background color */
-    padding: 5vh;
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow around the paragraph */
+    width: 120vh;
+    margin-bottom: 10vh;
+}
+
+.activities-welcome-text-container {
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
