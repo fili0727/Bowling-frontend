@@ -9,9 +9,11 @@ import {
 import DialogActions from '@mui/material/DialogActions'
 import Button from '@mui/material/Button'
 import StationDialogProps from '../../interfaces/props/StationDialogProps'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos'
 import ArrowBackIos from '@mui/icons-material/ArrowBackIos'
+import Booking from '../../interfaces/Booking'
+import { getAirhockeyBookingsApi } from '../../services/apiFacade'
 
 export default function StationDialog({
     station,
@@ -20,6 +22,7 @@ export default function StationDialog({
     onClose,
 }: StationDialogProps) {
     const [startDate, setStartDate] = useState(new Date())
+    const [bookingItems, setBookingItems] = useState<Booking[]>([])
 
     const daysOfWeek: string[] = [
         'SUNDAY',
@@ -38,6 +41,15 @@ export default function StationDialog({
         date.setDate(date.getDate() + i)
         next7dates.push(date)
     }
+
+    async function fetchData() {
+        const bookings = await getAirhockeyBookingsApi()
+        setBookingItems(bookings)
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
 
     function handleNextClick() {
         const newStartDate = new Date(startDate)
@@ -89,7 +101,9 @@ export default function StationDialog({
 
                     return (
                         <p key={date.toString()}>
-                            {date.toLocaleDateString()}: {dayOfWeek}{' '}
+                            {date.toLocaleDateString()}:{' '}
+                            {dayOfWeek.substring(0, 1)}
+                            {dayOfWeek.substring(1).toLocaleLowerCase()}{' '}
                             {formattedOpenTime} -{formattedCloseTime}
                         </p>
                     )

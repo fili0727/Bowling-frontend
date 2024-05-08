@@ -48,3 +48,10 @@ export async function getAirhockeyHoursApi(): Promise<OpeningHours[]> {
 
     return await handleHttpErrors(response)
 }
+
+export async function getAirhockeyBookingsApi(): Promise<Booking[]> {
+    const options = makeOptions('GET', null)
+    const response = await fetch(`${API_URL}/bookings/airhockey`, options)
+
+    return await handleHttpErrors(response)
+}

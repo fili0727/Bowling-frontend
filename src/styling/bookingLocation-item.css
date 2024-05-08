@@ -7,3 +7,8 @@
     margin: 1vh 4vh 1vh 4vh;
     font-weight: 500;
 }
+
+.bookingLocation-item-container:hover {
+    background-color: rgb(200, 220, 240);
+    cursor: pointer;
+}
