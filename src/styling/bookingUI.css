@@ -4,9 +4,9 @@ body {
     background-color: rgb(241, 241, 240);
 }
 
-/* .booking-ui-container {
-    height: 500vh;
-} */
+.booking-ui-container {
+    margin-top: 10vh;
+}
 
 .booking-ui-header {
     font-size: 4vh;
