@@ -3,6 +3,8 @@ import { API_URL } from "../../settings";
 import Product from "../../interfaces/Product";
 import { useEffect, useState } from "react";
 import ProductItem from "./ProductItem";
+import '../../styling/product.css'
+
 
 export default function ProductList(){
     const [products, setProducts] = useState<Product[]>([])
@@ -19,16 +21,14 @@ export default function ProductList(){
 
 
     return (
-        <div>
-            <h1>Product List</h1>
-            <p>Here you can see all products</p>
-            <div>
-                {products.map((product: Product) => (
-                    <div key={product.id}>
-                       <ProductItem product={product} />
-                    </div>
-                ))}
-            </div>
+      <div className="product-list-container">
+        <div className="product-items-container">
+            {products.map((product: Product) => (
+                <div key={product.id} className="product-item-wrapper">
+                    <ProductItem product={product} />
+                </div>
+            ))}
         </div>
+      </div>
     )
 }

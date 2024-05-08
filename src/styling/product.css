@@ -1,0 +1,121 @@
+/* Styling for the overall product list container */
+.product-list-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Styling for the product list title */
+.product-list-title {
+    color: #333;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+/* Description styling under the product list title */
+.product-list-description {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Container for all product items, potentially for flex/grid layout */
+.product-items-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+/* Wrapper for each individual product, useful for margins and padding */
+.product-item-wrapper {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.product-item-wrapper:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Styling for each product item */
+.product-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    text-align: center;
+    width: 240px; /* Adjust width as needed */
+}
+
+/* Image styling */
+.product-image {
+    width: auto; /* Adjusts width automatically to maintain aspect ratio */
+    height: 200px; /* Fixed height for consistency */
+    border-radius: 4px;
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+}
+
+
+/* Product name styling */
+.product-name {
+    color: #333;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* Product price styling */
+.product-price {
+    color: #888;
+    font-size: 16px;
+    margin-top: 5px;
+}
+/* General button styling */
+.product-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.product-button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Specific button colors for actions */
+.product-button.increment { background-color: #4CAF50; color: white; }
+.product-button.decrement { background-color: #FF5722; color: white; }
+.product-button.edit { background-color: #2196F3; color: white; }
+.product-button.delete { background-color: #F44336; color: white; }
+
+.product-button.increment:hover,
+.product-button.decrement:hover,
+.product-button.edit:hover,
+.product-button.delete:hover {
+    opacity: 0.8;
+}
+
+/* Control groups */
+.product-controls {
+    display: flex;
+    flex-direction: column;
+}
+
+.quantity-controls,
+.edit-controls {
+    display: flex;
+    justify-content: center; /* Centers buttons horizontally */
+    margin: 5px 0; /* Adds space above and below each group */
+}
+
+.quantity-controls .product-button,
+.edit-controls .product-button {
+    margin: 0 5px; /* Space between buttons in the same row */
+}
