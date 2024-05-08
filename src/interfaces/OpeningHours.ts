@@ -1,11 +1,11 @@
 enum DayOfWeek {
-    MONDAY,
-    TUESDAY,
-    WEDNESDAY,
-    THURSDAY,
-    FRIDAY,
-    SATURDAY,
-    SUNDAY,
+    MONDAY = 'MONDAY',
+    TUESDAY = 'TUESDAY',
+    WEDNESDAY = 'WEDNESDAY',
+    THURSDAY = 'THURSDAY',
+    FRIDAY = 'FRIDAY',
+    SATURDAY = 'SATURDAY',
+    SUNDAY = 'SUNDAY',
 }
 
 enum ActivityType {
@@ -17,7 +17,7 @@ enum ActivityType {
 export default interface OpeningHours {
     id: number
     dayOfWeek: DayOfWeek
-    openTime: Date
-    closeTime: Date
+    openingTime: string
+    closingTime: string
     activityType: ActivityType
 }

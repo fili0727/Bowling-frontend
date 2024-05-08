@@ -9,7 +9,7 @@ export default function BookingLocationItem({
     return (
         <div className="bookingLocation-item-container">
             <p>{bookingLocation.name}</p>
-            <p>Max capacity: {bookingLocation.capacity}</p>
+            <p>Max amount of people: {bookingLocation.capacity}</p>
         </div>
     )
 }
