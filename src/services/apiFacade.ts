@@ -60,9 +60,12 @@ export async function getBookingsByActivityAndDate(
     activityType: string,
     date: string
 ): Promise<Booking[]> {
+    console.log(date.toString())
     const options = makeOptions('GET', null)
     const response = await fetch(
-        `${API_URL}/bookings/activityAndDate?activityType=${activityType}&date=${date}`,
+        `${API_URL}/bookings/activityAndDate?activityType=${activityType}&date=${new Date(
+            date
+        ).toLocaleDateString('en-CA')}`,
         options
     )
 

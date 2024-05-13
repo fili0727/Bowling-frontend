@@ -84,10 +84,11 @@ export default function StationDialog({
 
                             return (
                                 <div
+                                    key={date.toDateString()}
                                     onClick={() => handleDateClicked(date)}
                                     className="opening-hours-day"
                                 >
-                                    <p key={date.toString()}>
+                                    <p>
                                         {dayOfWeek.substring(0, 1) +
                                             dayOfWeek
                                                 .substring(1)

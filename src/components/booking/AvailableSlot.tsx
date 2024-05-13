@@ -14,6 +14,8 @@ export default function AvailableSlot({
     async function fetchData() {
         const bookings = await getBookingsByActivityAndDate(activityType, date)
         setExistingBookings(bookings)
+
+        console.log(bookings)
     }
 
     useEffect(() => {
@@ -25,7 +27,7 @@ export default function AvailableSlot({
         <div>
             {existingBookings.map((booking) => (
                 <div key={booking.id}>
-                    {booking.bookingTime.toLocaleDateString()}
+                    Existing booking:{booking.bookingTime.toString()}
                 </div>
             ))}
         </div>
