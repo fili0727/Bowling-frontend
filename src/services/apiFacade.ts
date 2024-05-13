@@ -55,3 +55,16 @@ export async function getAirhockeyBookingsApi(): Promise<Booking[]> {
 
     return await handleHttpErrors(response)
 }
+
+export async function getBookingsByActivityAndDate(
+    activityType: string,
+    date: string
+): Promise<Booking[]> {
+    const options = makeOptions('GET', null)
+    const response = await fetch(
+        `${API_URL}/bookings/activityAndDate?activityType=${activityType}&date=${date}`,
+        options
+    )
+
+    return await handleHttpErrors(response)
+}

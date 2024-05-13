@@ -23,4 +23,5 @@ export const StyledDialogActions = styled(DialogActions)({
     justifyContent: 'center',
     padding: '0 ',
     margin: '0',
+    scale: '0.7',
 })
