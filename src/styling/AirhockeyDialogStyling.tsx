@@ -13,6 +13,7 @@ export const StyledDialogTitle = styled(DialogTitle)({
 
 export const StyledDialogContent = styled(DialogContent)({
     padding: '0vh 10vh 0vh 10vh',
+    textAlign: 'center',
 })
 
 export const StyledButton = styled(Button)({

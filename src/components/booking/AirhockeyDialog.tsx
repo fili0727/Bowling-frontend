@@ -103,9 +103,9 @@ export default function StationDialog({
             )}
             {selectedDate != null && (
                 <StyledDialogContent>
-                    <Button onClick={() => setSelectedDate(null)}>
+                    <StyledButton onClick={() => setSelectedDate(null)}>
                         Back to dates
-                    </Button>
+                    </StyledButton>
                     <AvailableSlot
                         activityType="AIRHOCKEY"
                         date={selectedDate.toLocaleDateString()}

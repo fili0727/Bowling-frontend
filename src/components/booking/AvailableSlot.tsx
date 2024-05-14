@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import { getBookingsByActivityAndDate } from '../../services/apiFacade'
 import Booking from '../../interfaces/Booking'
 import OpeningHours from '../../interfaces/OpeningHours'
+import '../../styling/availableslots.css'
+import moment from 'moment'
+import TimeSlot from '../../interfaces/TimeSlot'
 
 export default function AvailableSlot({
     activityType,
@@ -12,22 +15,19 @@ export default function AvailableSlot({
     date: string
     openingHours: OpeningHours[]
 }) {
-    const [existingBookings, setExistingBookings] = useState<Booking[]>([])
-    const [bookingSlots, setBookingSlots] = useState<string[]>([])
+    const [availabeSlots, setAvailableSlots] = useState<TimeSlot[]>([])
 
     async function fetchData() {
         const bookings = await getBookingsByActivityAndDate(activityType, date)
-        setExistingBookings(bookings)
-        console.log(bookings)
+        generateOpenSlots(bookings)
     }
 
     useEffect(() => {
         fetchData()
-        generateOpenSlots()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    function generateOpenSlots() {
+    function generateOpenSlots(bookings: Booking[]) {
         openingHours.map((hours) => {
             const dayOfWeek = new Date(date).getDay()
             let dayOfWeekString
@@ -59,12 +59,20 @@ export default function AvailableSlot({
             }
 
             if (hours.dayOfWeek === dayOfWeekString) {
-                generateBookingTimes(hours.openingTime, hours.closingTime)
+                generateOpenSlotsHelper(
+                    hours.openingTime,
+                    hours.closingTime,
+                    bookings
+                )
             }
         })
     }
 
-    function generateBookingTimes(openingTime: string, closingTime: string) {
+    function generateOpenSlotsHelper(
+        openingTime: string,
+        closingTime: string,
+        existingBookings: Booking[]
+    ) {
         const slots = []
 
         for (
@@ -72,21 +80,50 @@ export default function AvailableSlot({
             i + 2 <= parseInt(closingTime);
             i += 2
         ) {
-            slots.push(`Booking time: ${i} - ${i + 2}`)
+            const startTime = i < 10 ? `0${i}:00:00` : `${i}:00:00`
+            const dateTime =
+                moment(date, 'MM/DD/YYYY').format('YYYY-MM-DD') +
+                'T' +
+                startTime
+
+            const isBooked = existingBookings.some(
+                (booking) => booking.bookingTime.toString() === dateTime
+            )
+
+            slots.push({
+                slot: `Booking time: ${i} - ${i + 2}`,
+                dateTime: dateTime,
+                booked: isBooked,
+            })
         }
 
-        setBookingSlots(slots)
+        setAvailableSlots(slots)
+    }
+
+    function toggleBookingSlot(dateTime: string) {
+        console.log(dateTime, 'booked')
     }
 
     return (
-        <div>
-            {existingBookings.map((booking) => (
-                <div key={booking.id}>
-                    Existing booking:{booking.bookingTime.toString()}
+        <div className="available-bookings-container">
+            <div className="available-bookings-header">
+                <h4>
+                    {new Date(date).toLocaleDateString('en-US', {
+                        weekday: 'long',
+                    })}
+                </h4>
+                <h4>{date}</h4>
+            </div>
+            {availabeSlots.map((slotItem) => (
+                <div
+                    className={`available-booking-slot${
+                        slotItem.booked ? '-booked' : ''
+                    }`}
+                    onClick={() => toggleBookingSlot(slotItem.dateTime)}
+                    key={slotItem.dateTime}
+                >
+                    {slotItem.slot}
                 </div>
-            ))}
-            {bookingSlots.map((slot, index) => (
-                <div key={index}>{slot}</div>
             ))}
         </div>
     )
