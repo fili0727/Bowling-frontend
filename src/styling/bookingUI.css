@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(241, 241, 240);
+}
+
+.booking-ui-container {
+    margin-top: 10vh;
+}
+
+.booking-ui-header {
+    font-size: 4vh;
+    margin: 1vh;
+}
+
+.activity-buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 5vh;
+}
+
+.img-button {
+    width: 45vh;
+    height: 45vh;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.5s;
+    box-shadow: 0vh 0vh 3vh 2vh rgba(0, 0, 0, 0.3);
+}
+
+.img-button:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 1000px) {
+    .img-button {
+        width: 35vh; /* Adjust this value as needed */
+        height: 35vh; /* Adjust this value as needed */
+    }
+}
+
+@media (max-width: 800px) {
+    .img-button {
+        width: 30vh; /* Adjust this value as needed */
+        height: 30vh; /* Adjust this value as needed */
+    }
+}
+
+.booking-ui-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.activities-welcome-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

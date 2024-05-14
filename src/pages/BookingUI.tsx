@@ -1,26 +1,35 @@
-import TableList from '../components/booking/TableList'
 import table from '../assets/diningtable.jpg'
-import { useState } from 'react'
+import airhockey from '../assets/airhockey.jpg'
+import lane from '../assets/lanes.jpg'
+import '../styling/bookingUI.css'
+import WelcomeText from '../components/booking/WelcomeText'
+import { NavLink } from 'react-router-dom'
 
 export default function BookingUI() {
-    const [toggleDining, setToggleDining] = useState(false)
-
-    function handleToggleDining() {
-        setToggleDining((prev) => !prev)
-    }
-
     return (
         <div className="booking-ui-container">
-            <h1>Booking</h1>
-            <p>Here you can book an activity</p>
-            <div className="table-button-container">
-                <img
-                    onClick={handleToggleDining}
-                    className="table-button"
-                    src={table}
-                />
+            <div className="booking-ui-header">
+                <h1>Activities</h1>
             </div>
-            {toggleDining && <TableList />}
+
+            <div className="activity-buttons-container">
+                <div className="activity-button-container">
+                    <NavLink to="/dining">
+                        <img className="img-button" src={table} />
+                    </NavLink>
+                </div>
+                <div className="activity-button-container">
+                    <NavLink to="/airhockey">
+                        <img className="img-button" src={airhockey} />
+                    </NavLink>
+                </div>
+                <div className="activity-button-container">
+                    <NavLink to="/bowling">
+                        <img className="img-button" src={lane} />
+                    </NavLink>
+                </div>
+            </div>
+            <WelcomeText />
         </div>
     )
 }
