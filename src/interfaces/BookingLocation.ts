@@ -1,4 +1,4 @@
-enum Activity {
+enum ActivityType {
     BOWLING,
     AIRHOCKEY,
     DINING,
@@ -6,7 +6,7 @@ enum Activity {
 
 export default interface BookingLocation {
     id: number
-    activity: Activity
+    activityType: ActivityType
     name: string
     capacity: number
 }

@@ -1,0 +1,24 @@
+.opening-hours-day:hover {
+    cursor: pointer;
+    background-color: #e0e0e0;
+    border-radius: 15vh;
+}
+
+.opening-hours-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0vh 5vh 1vh 5vh;
+    border: 1px solid #e0e0e0;
+    border-radius: 5vh;
+    width: 30vh;
+}
+
+.opening-hours-day {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -1vh;
+    width: 25vh;
+    padding: 0vh 2vh 0vh 2vh;
+}

@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react'
 import BookingLocation from '../../interfaces/BookingLocation'
-import { getTablesApi } from '../../services/apiFacade'
+import { getLanesApi } from '../../services/apiFacade'
 import BookingLocationItem from './BookingLocationItem'
-import '../../styling/activityList.css'
-import DiningText from './DiningText'
+import BowlingText from './BowlingText'
 import { Fade } from '@mui/material'
 
-export default function TableList() {
-    const [tables, setTables] = useState<BookingLocation[]>([])
+export default function BowlingList() {
+    const [lanes, setLanes] = useState<BookingLocation[]>([])
 
     async function fetchData() {
-        const tables = await getTablesApi()
-        setTables(tables)
+        const bowling = await getLanesApi()
+        setLanes(bowling)
     }
 
     useEffect(() => {
@@ -21,11 +20,11 @@ export default function TableList() {
     return (
         <Fade in={true} timeout={1000}>
             <div className="activity-list-container">
-                <DiningText />
+                <BowlingText />
                 <ul className="activity-list">
-                    {tables.map((table: BookingLocation) => (
-                        <li className="activity-list-li" key={table.id}>
-                            <BookingLocationItem bookingLocation={table} />
+                    {lanes.map((lane: BookingLocation) => (
+                        <li className="activity-list-li" key={lane.id}>
+                            <BookingLocationItem bookingLocation={lane} />
                         </li>
                     ))}
                 </ul>
