@@ -110,6 +110,7 @@ export default function StationDialog({
                         activityType="AIRHOCKEY"
                         date={selectedDate.toLocaleDateString()}
                         openingHours={openingHours}
+                        station={station}
                     />
                 </StyledDialogContent>
             )}

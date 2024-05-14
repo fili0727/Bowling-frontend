@@ -3,6 +3,7 @@ import Booking from '../interfaces/Booking'
 import { handleHttpErrors, makeOptions } from './fetchUtilities'
 import BookingLocation from '../interfaces/BookingLocation'
 import OpeningHours from '../interfaces/OpeningHours'
+import BookingDto from '../interfaces/BookingDto'
 
 export async function getBookingsApi(): Promise<Booking[]> {
     const options = makeOptions('GET', null)
@@ -67,6 +68,13 @@ export async function getBookingsByActivityAndDate(
         ).toLocaleDateString('en-CA')}`,
         options
     )
+
+    return await handleHttpErrors(response)
+}
+
+export async function postBookingApi(booking: BookingDto): Promise<Booking> {
+    const options = makeOptions('POST', booking)
+    const response = await fetch(`${API_URL}/bookings`, options)
 
     return await handleHttpErrors(response)
 }

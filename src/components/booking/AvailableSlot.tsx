@@ -5,17 +5,22 @@ import OpeningHours from '../../interfaces/OpeningHours'
 import '../../styling/availableslots.css'
 import moment from 'moment'
 import TimeSlot from '../../interfaces/TimeSlot'
+import BookingLocation from '../../interfaces/BookingLocation'
+import { useNavigate } from 'react-router-dom'
 
 export default function AvailableSlot({
     activityType,
     date,
     openingHours,
+    station,
 }: {
     activityType: string
     date: string
     openingHours: OpeningHours[]
+    station: BookingLocation
 }) {
     const [availabeSlots, setAvailableSlots] = useState<TimeSlot[]>([])
+    const navigate = useNavigate()
 
     async function fetchData() {
         const bookings = await getBookingsByActivityAndDate(activityType, date)
@@ -100,8 +105,12 @@ export default function AvailableSlot({
         setAvailableSlots(slots)
     }
 
-    function toggleBookingSlot(dateTime: string) {
-        console.log(dateTime, 'booked')
+    function handleBookingSlotClicked(slotItem: TimeSlot) {
+        if (!slotItem.booked) {
+            navigate('/booking_confirmation', {
+                state: { slotItem, station, activityType },
+            })
+        }
     }
 
     return (
@@ -119,7 +128,7 @@ export default function AvailableSlot({
                     className={`available-booking-slot${
                         slotItem.booked ? '-booked' : ''
                     }`}
-                    onClick={() => toggleBookingSlot(slotItem.dateTime)}
+                    onClick={() => handleBookingSlotClicked(slotItem)}
                     key={slotItem.dateTime}
                 >
                     {slotItem.slot}
