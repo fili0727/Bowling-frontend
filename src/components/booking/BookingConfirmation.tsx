@@ -78,7 +78,9 @@ export default function BookingConfirmation() {
                                 value={bookingName}
                                 onChange={handleNameChange}
                                 required
-                                style={{ width: '15vh' }}
+                                style={{
+                                    width: '15vh',
+                                }}
                             />
                         </div>
                     </div>
@@ -131,11 +133,12 @@ export default function BookingConfirmation() {
             )}
             {confirmationText && (
                 <div className="confirmation-text-container">
-                    <p>The booking is confirmed</p>
                     <p>
                         For further details navigate to{' '}
-                        <NavLink to="/bookings">bookings</NavLink>
+                        <NavLink to="/bookings">bookings</NavLink> and search
+                        for the booking name:
                     </p>
+                    <h3>"{bookingName}"</h3>
                 </div>
             )}
         </div>
