@@ -2,5 +2,63 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin-top: 20vh;
+}
+
+.booking-confirmation-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.confirm-booking-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: rgb(149, 204, 149);
+    border: 1px solid #f5f5f5;
+    border-radius: 5px;
+    width: 50vh;
+}
+
+.confirm-booking-button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.booking-confirmation-info-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10vh;
+    margin-bottom: 4vh;
+    border-bottom: 1px solid black;
+}
+
+.booking-confirmation-info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.h3-booking-confirmation {
+    margin: 0;
+    padding: 0;
+}
+
+.confirmation-error {
+    color: red;
+    padding: 0;
+    margin-top: 0;
+}
+
+.input-booking-confirmation {
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+    padding: 1vh;
+    border-radius: 5vh;
 }
