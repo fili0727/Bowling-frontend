@@ -50,6 +50,11 @@ export default function BookingConfirmation() {
                     Max participants is {station.capacity}
                 </p>
             )}
+            {bookingName.length < 10 && (
+                <p className="confirmation-error">
+                    Please write full name for the booking
+                </p>
+            )}
             {!confirmationText && (
                 <div className="booking-confirmation-info">
                     <div className="booking-confirmation-info-top">
@@ -125,7 +130,10 @@ export default function BookingConfirmation() {
                     <button
                         className="confirm-booking-button"
                         onClick={() => confirmBooking(booking)}
-                        disabled={amountOfPeople > station.capacity}
+                        disabled={
+                            amountOfPeople > station.capacity ||
+                            bookingName.length < 10
+                        }
                     >
                         Confirm booking
                     </button>

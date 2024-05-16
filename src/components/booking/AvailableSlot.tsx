@@ -92,7 +92,9 @@ export default function AvailableSlot({
                 startTime
 
             const isBooked = existingBookings.some(
-                (booking) => booking.bookingTime.toString() === dateTime
+                (booking) =>
+                    booking.bookingTime.toString() === dateTime &&
+                    booking.bookingLocation.id === station.id
             )
 
             slots.push({
