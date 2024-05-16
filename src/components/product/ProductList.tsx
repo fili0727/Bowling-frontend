@@ -99,46 +99,48 @@ export default function ProductList() {
   ));
 
   return (
-    <div> <button className="add-product-button" onClick={handleAddProductClick}>Add Product</button>
-    <div className="product-list-container">
-     
-      {error && <p className="error-message">{error}</p>}
-      <div className="product-items-container">
-        {productListItem}
-      </div>
-      <div className="shopping-cart">
-        <h2>Shopping Cart</h2>
-        <ul>
-          {cart.map((item) => (
-            <li key={item.id}>
-              {item.name} - {item.quantity} x {item.price} kr = {item.quantity * item.price} kr
-            </li>
-          ))}
-        </ul>
-        <h3>Total: {total} kr</h3>
-        <button className="empty-cart-button" onClick={handleEmptyCart}>Empty Cart</button>
-      </div>
-      {editingProduct ? (
-        <EditPriceDialog
-          open={open}
-          product={editingProduct}
-          onSave={(product: Product) => {
-            handleSave(product);
-            setOpen(false);
-          }}
-          onClose={() => setOpen(false)}
-        />
-      ) : (
-        <AddProductDialog
-          open={open && addingProduct}
-          onSave={(newProduct: Product) => {
-            handleSave(newProduct);
-            setOpen(false);
-          }}
-          onClose={() => setOpen(false)}
-        />
-      )}
+  <div className="product-list-container">
+    <button className="add-product-button" onClick={handleAddProductClick}>
+      Add Product
+    </button>
+    <div className="product-items-container">
+      {productListItem}
     </div>
+    <div className="shopping-cart">
+      <h2>Shopping Cart</h2>
+      <ul>
+        {cart.map((item) => (
+          <li key={item.id}>
+            {item.name} - {item.quantity} x {item.price} kr = {item.quantity * item.price} kr
+          </li>
+        ))}
+      </ul>
+      <h3>Total: {total} kr</h3>
+      <button className="empty-cart-button" onClick={handleEmptyCart}>
+        Empty Cart
+      </button>
     </div>
-  );
+    {editingProduct ? (
+      <EditPriceDialog
+        open={open}
+        product={editingProduct}
+        onSave={(product: Product) => {
+          handleSave(product);
+          setOpen(false);
+        }}
+        onClose={() => setOpen(false)}
+      />
+    ) : (
+      <AddProductDialog
+        open={open && addingProduct}
+        onSave={(newProduct: Product) => {
+          handleSave(newProduct);
+          setOpen(false);
+        }}
+        onClose={() => setOpen(false)}
+      />
+    )}
+  </div>
+);
+
 }
