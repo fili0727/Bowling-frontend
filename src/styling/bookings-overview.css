@@ -11,6 +11,7 @@
 .bookings-overview-header {
     font-size: 4vh;
     margin: 1vh;
+    text-align: center;
 }
 
 .bookings-overview-table {

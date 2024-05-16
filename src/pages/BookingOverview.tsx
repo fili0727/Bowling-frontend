@@ -6,11 +6,14 @@ import moment from 'moment'
 
 export default function BookingOverview() {
     const [bookings, setBookings] = useState<Booking[]>([])
+    const [searchInput, setSearchInput] = useState('')
+    const filteredBookings = bookings.filter((booking) =>
+        booking.name.toLowerCase().includes(searchInput.toLowerCase())
+    )
 
     async function fetchBookings() {
         const bookingItems = await getBookingsApi()
         setBookings(bookingItems)
-        console.log(bookingItems)
     }
 
     useEffect(() => {
@@ -21,6 +24,12 @@ export default function BookingOverview() {
         <div className="bookings-overview-container">
             <div className="bookings-overview-header">
                 <h1>Bookings</h1>
+                <input
+                    type="text"
+                    placeholder="Search by name"
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                />
             </div>
             <div className="bookings-overview-content">
                 <table className="bookings-overview-table">
@@ -34,7 +43,7 @@ export default function BookingOverview() {
                         </tr>
                     </thead>
                     <tbody>
-                        {bookings.map((booking) => (
+                        {filteredBookings.map((booking) => (
                             <tr key={booking.id}>
                                 <td>{booking.name}</td>
                                 <td>
