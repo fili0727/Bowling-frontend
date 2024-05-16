@@ -103,6 +103,7 @@ export default function ProductList() {
     <button className="add-product-button" onClick={handleAddProductClick}>
       Add Product
     </button>
+    <p>{error}</p>
     <div className="product-items-container">
       {productListItem}
     </div>
