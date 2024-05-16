@@ -37,6 +37,7 @@ export default function EditPriceDialog({
         <dialog className="modal" open={open} onClose={onClose}>
             <div className="modal-content">
                 <h2>Edit Price</h2>
+                <div className="modal-input-group">
                 <input
                     type="number"
                     name="price"
@@ -44,6 +45,7 @@ export default function EditPriceDialog({
                     value={editedProduct?.price || ""}
                     className="modal-input"
                 />
+                </div>
                 <div className="modal-actions">
                     <button onClick={handleSave} className="modal-button edit">Save</button>
                     <button onClick={onClose} className="modal-button cancel">Cancel</button>
