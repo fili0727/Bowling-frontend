@@ -3,5 +3,28 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 20vh;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    width: 100%;
+}
+
+.bookings-overview-header {
+    font-size: 4vh;
+    margin: 1vh;
+}
+
+.bookings-overview-table {
+    width: 150vh; /* Make the table take up the full width of its container */
+    border-collapse: collapse; /* Collapse borders */
+}
+
+.bookings-overview-table th,
+.bookings-overview-table td {
+    text-align: left; /* Align text to the left */
+    padding: 2vh; /* Add some padding */
+    border: 0.2vh solid #ddd; /* Add a border */
+}
+
+.bookings-overview-table th {
+    background-color: #b9b9b9; /* Add a background color to the header cells */
 }
