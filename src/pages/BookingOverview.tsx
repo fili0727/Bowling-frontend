@@ -3,13 +3,25 @@ import '../styling/bookings-overview.css'
 import Booking from '../interfaces/Booking'
 import { getBookingsApi } from '../services/apiFacade'
 import moment from 'moment'
+import EditBookingDialog from '../components/booking/EditBookingDialog'
 
 export default function BookingOverview() {
+    const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null)
+    const [dialogOpen, setDialogOpen] = useState(false)
     const [bookings, setBookings] = useState<Booking[]>([])
     const [searchInput, setSearchInput] = useState('')
     const filteredBookings = bookings.filter((booking) =>
         booking.name.toLowerCase().includes(searchInput.toLowerCase())
     )
+
+    function closeDialog() {
+        setDialogOpen(false)
+    }
+
+    function openDialog(booking: Booking) {
+        setDialogOpen(true)
+        setSelectedBooking(booking)
+    }
 
     async function fetchBookings() {
         const bookingItems = await getBookingsApi()
@@ -26,7 +38,7 @@ export default function BookingOverview() {
                 <h1>Bookings</h1>
                 <input
                     type="text"
-                    placeholder="Search by name"
+                    placeholder="Find by name"
                     value={searchInput}
                     onChange={(e) => setSearchInput(e.target.value)}
                 />
@@ -40,6 +52,7 @@ export default function BookingOverview() {
                             <th>Participants</th>
                             <th>Activity</th>
                             <th>Location</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,11 +77,28 @@ export default function BookingOverview() {
                                             .toLowerCase()}
                                 </td>
                                 <td>{booking.bookingLocation.name}</td>
+                                <td>
+                                    <div className="booking-overview-button-container">
+                                        <button
+                                            onClick={() => openDialog(booking)}
+                                        >
+                                            Edit
+                                        </button>
+                                        <button>Cancel</button>
+                                    </div>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
+            {dialogOpen && (
+                <EditBookingDialog
+                    booking={selectedBooking}
+                    open={dialogOpen}
+                    onClose={closeDialog}
+                />
+            )}
         </div>
     )
 }
