@@ -5,4 +5,5 @@ export default interface Booking {
     bookingLocation: BookingLocation
     amountOfPeople: number
     bookingTime: Date
+    name: string
 }
