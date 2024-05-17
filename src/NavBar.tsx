@@ -3,6 +3,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import BookOnlineIcon from '@mui/icons-material/BookOnline'
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings'
 import ExtensionIcon from '@mui/icons-material/Extension'
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import './styling/navBar.css'
 
 export default function NavBar() {
@@ -39,6 +40,16 @@ export default function NavBar() {
                         <p>Bookings</p>
                     </NavLink>
                 </li>
+                  <li
+                    className={
+                        location.pathname === '/staff-schedule' ? 'active-header' : ''
+                    }
+                >
+                    <NavLink to="/staff-schedule">
+                        <CalendarMonthIcon />
+                        <p>Staff Schedule</p>
+                    </NavLink>
+                </li>
                 <li
                     className={
                         location.pathname.startsWith('/admin')
@@ -46,6 +57,7 @@ export default function NavBar() {
                             : ''
                     }
                 >
+                
                     <NavLink to="/admin">
                         <AdminPanelSettingsIcon />
                         <p>Admin</p>

@@ -8,6 +8,7 @@ import TableList from './components/booking/TableList'
 import AirhockeyList from './components/booking/AirhockeyList'
 import BookingConfirmation from './components/booking/BookingConfirmation'
 import BookingOverview from './pages/BookingOverview'
+import Schedule from './pages/Schedule'
 
 export default function App() {
     return (
@@ -21,6 +22,7 @@ export default function App() {
                 <Route path="/dining" element={<TableList />} />
                 <Route path="/airhockey" element={<AirhockeyList />} />
                 <Route path="/bookings" element={<BookingOverview />} />
+                <Route path="/staff-schedule" element={<Schedule />} />
                 <Route
                     path="/booking_confirmation"
                     element={<BookingConfirmation />}
