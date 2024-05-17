@@ -88,7 +88,7 @@ export default function ScheduleCalendar() {
         headerToolbar={{
           left: 'prev,next today',
           center: 'title',
-          right: 'timeGridDay,timeGridWeek,dayGridMonth',
+          right: 'timeGridDay,timeGridWeek',
         }}
         slotMinTime="08:00:00" // Adjust to your opening hours
         slotMaxTime="23:59:00" // Adjust to your closing hours

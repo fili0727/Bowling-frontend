@@ -1,5 +1,5 @@
 import  { useEffect, useState } from 'react';
-import { DialogActions, TextField, Button, MenuItem, FormHelperText } from '@mui/material';
+import { DialogActions, TextField, Button, MenuItem } from '@mui/material';
 import Employee from '../../interfaces/Employee';
 import Schedule from '../../interfaces/Schedule';
 import { addShiftApi, fetchSchedules, fetchEmployees } from '../../services/apiFacade';
@@ -43,6 +43,7 @@ export default function AddShiftDialog({ onClose, onShiftAdded }: AddShiftDialog
     };
 
     try {
+      //@ts-expect-error id is possibly null
       await addShiftApi(newShift);
       const updatedSchedules = await fetchSchedules();
       onShiftAdded(updatedSchedules);
@@ -51,6 +52,8 @@ export default function AddShiftDialog({ onClose, onShiftAdded }: AddShiftDialog
       console.error('Failed to add shift:', error);
     }
   };
+
+  
 
   return (
     <div>
@@ -105,7 +108,7 @@ export default function AddShiftDialog({ onClose, onShiftAdded }: AddShiftDialog
         }}
       />
       {error && (
-        <FormHelperText error>{error}</FormHelperText>
+      <p>Tis</p>
       )}
       <DialogActions>
         <Button onClick={onClose} color="secondary">
