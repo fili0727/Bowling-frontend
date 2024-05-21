@@ -1,7 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import BookOnlineIcon from '@mui/icons-material/BookOnline'
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings'
 import ExtensionIcon from '@mui/icons-material/Extension'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import EventIcon from '@mui/icons-material/Event';
@@ -14,9 +13,9 @@ export default function NavBar() {
         <nav className="nav-header">
             <ul className="nav-header-ul">
                 <li
-                    className={location.pathname === '/' ? 'active-header' : ''}
+                    className={location.pathname === '/booking' ? 'active-header' : ''}
                 >
-                    <NavLink to="/">
+                    <NavLink to="/booking">
                         <ExtensionIcon />
                         <p>Activities</p>
                     </NavLink>
@@ -61,19 +60,7 @@ export default function NavBar() {
                         <p>Bookings Caleneder</p>
                     </NavLink>
                 </li>
-                <li
-                    className={
-                        location.pathname.startsWith('/admin')
-                            ? 'active-header'
-                            : ''
-                    }
-                >
-                
-                    <NavLink to="/admin">
-                        <AdminPanelSettingsIcon />
-                        <p>Admin</p>
-                    </NavLink>
-                </li>
+               
             </ul>
         </nav>
     )
