@@ -4,6 +4,7 @@ import BookOnlineIcon from '@mui/icons-material/BookOnline'
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings'
 import ExtensionIcon from '@mui/icons-material/Extension'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import EventIcon from '@mui/icons-material/Event';
 import './styling/navBar.css'
 
 export default function NavBar() {
@@ -48,6 +49,16 @@ export default function NavBar() {
                     <NavLink to="/staff-schedule">
                         <CalendarMonthIcon />
                         <p>Staff Schedule</p>
+                    </NavLink>
+                </li>
+                 <li
+                    className={
+                        location.pathname === '/bookings-calender' ? 'active-header' : ''
+                    }
+                >
+                    <NavLink to="/bookings-calender">
+                        <EventIcon />
+                        <p>Bookings Caleneder</p>
                     </NavLink>
                 </li>
                 <li

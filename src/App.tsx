@@ -9,6 +9,7 @@ import AirhockeyList from './components/booking/AirhockeyList'
 import BookingConfirmation from './components/booking/BookingConfirmation'
 import BookingOverview from './pages/BookingOverview'
 import Schedule from './pages/Schedule'
+import BookingsCalender from './pages/BookingsCalender'
 
 export default function App() {
     return (
@@ -23,6 +24,7 @@ export default function App() {
                 <Route path="/airhockey" element={<AirhockeyList />} />
                 <Route path="/bookings" element={<BookingOverview />} />
                 <Route path="/staff-schedule" element={<Schedule />} />
+                <Route path="/bookings-calender" element={<BookingsCalender />} />
                 <Route
                     path="/booking_confirmation"
                     element={<BookingConfirmation />}
