@@ -13,11 +13,17 @@ export default function AvailableSlot({
     date,
     openingHours,
     station,
+    isEditing,
+    setEditDate,
+    setDialogOpen,
 }: {
     activityType: string
     date: string
     openingHours: OpeningHours[]
     station: BookingLocation
+    isEditing: boolean
+    setEditDate: (date: string) => void
+    setDialogOpen: (open: boolean) => void
 }) {
     const [availabeSlots, setAvailableSlots] = useState<TimeSlot[]>([])
     const navigate = useNavigate()
@@ -108,6 +114,12 @@ export default function AvailableSlot({
     }
 
     function handleBookingSlotClicked(slotItem: TimeSlot) {
+        if (isEditing) {
+            setEditDate(slotItem.dateTime)
+            setDialogOpen(false)
+            return
+        }
+
         if (!slotItem.booked) {
             navigate('/booking_confirmation', {
                 state: { slotItem, station, activityType },

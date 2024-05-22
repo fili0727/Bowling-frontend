@@ -7,11 +7,19 @@ import OpeningHours from '../interfaces/OpeningHours'
 import BookingDto from '../interfaces/BookingDto'
 import Schedule from '../interfaces/Schedule'
 import Employee from '../interfaces/Employee'
-import  NewShift  from '../interfaces/NewShift'
+import NewShift from '../interfaces/NewShift'
+import BookingEditDto from '../interfaces/BookingEditDto'
 
 export async function getBookingsApi(): Promise<Booking[]> {
     const options = makeOptions('GET', null)
     const response = await fetch(`${API_URL}/bookings`, options)
+
+    return await handleHttpErrors(response)
+}
+
+export async function getBookingByIdApi(id: number): Promise<Booking> {
+    const options = makeOptions('GET', null)
+    const response = await fetch(`${API_URL}/bookings/${id}`, options)
 
     return await handleHttpErrors(response)
 }
@@ -83,6 +91,15 @@ export async function postBookingApi(booking: BookingDto): Promise<Booking> {
     return await handleHttpErrors(response)
 }
 
+export async function updateBookingsApi(
+    booking: BookingEditDto
+): Promise<Booking> {
+    const options = makeOptions('PATCH', booking)
+    const response = await fetch(`${API_URL}/bookings/${booking.id}`, options)
+
+    return await handleHttpErrors(response)
+}
+
 //Products
 
 export async function getProductsApi(): Promise<Product[]> {
@@ -124,43 +141,41 @@ export async function deleteProductApi(id: number) {
     }
 }
 
-
 //Schedule
 
 export async function fetchSchedules(): Promise<Schedule[]> {
-  const options = makeOptions('GET', null);
-  const response = await fetch(`${API_URL}/schedules`, options);
+    const options = makeOptions('GET', null)
+    const response = await fetch(`${API_URL}/schedules`, options)
 
-  return await handleHttpErrors(response);
+    return await handleHttpErrors(response)
 }
 
 export async function addShiftApi(shift: NewShift): Promise<Schedule> {
-  const options = makeOptions('POST', shift);
-  const response = await fetch(`${API_URL}/schedules`, options);
+    const options = makeOptions('POST', shift)
+    const response = await fetch(`${API_URL}/schedules`, options)
 
-  return await handleHttpErrors(response);
+    return await handleHttpErrors(response)
 }
 
 export async function deleteShiftApi(id: number): Promise<void> {
-  const options = makeOptions('DELETE', null);
-  const response = await fetch(`${API_URL}/schedules/${id}`, options);
+    const options = makeOptions('DELETE', null)
+    const response = await fetch(`${API_URL}/schedules/${id}`, options)
 
-  return await handleHttpErrors(response);
+    return await handleHttpErrors(response)
 }
 
 //Employees
 
 export async function fetchEmployees(): Promise<Employee[]> {
-  const options = makeOptions('GET', null);
-  const response = await fetch(`${API_URL}/employees`, options);
+    const options = makeOptions('GET', null)
+    const response = await fetch(`${API_URL}/employees`, options)
 
-  return await handleHttpErrors(response);
+    return await handleHttpErrors(response)
 }
 
 export async function addEmployeeApi(employee: Employee): Promise<Employee> {
-    const options = makeOptions('POST', employee);
-    const response = await fetch(`${API_URL}/employees`, options);
-    
-    return await handleHttpErrors(response);
-    }
+    const options = makeOptions('POST', employee)
+    const response = await fetch(`${API_URL}/employees`, options)
 
+    return await handleHttpErrors(response)
+}
