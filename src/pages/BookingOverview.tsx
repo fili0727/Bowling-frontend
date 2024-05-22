@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import '../styling/bookings-overview.css'
 import Booking from '../interfaces/Booking'
-import { getBookingsApi } from '../services/apiFacade'
+import { getBookingByIdApi, getBookingsApi } from '../services/apiFacade'
 import moment from 'moment'
 import EditBookingDialog from '../components/booking/EditBookingDialog'
 
@@ -13,6 +13,21 @@ export default function BookingOverview() {
     const filteredBookings = bookings.filter((booking) =>
         booking.name.toLowerCase().includes(searchInput.toLowerCase())
     )
+
+    async function getUpdatedBooking(id: number) {
+        const updatedBooking = await getBookingByIdApi(id)
+
+        if (updatedBooking) {
+            const updatedBookings = bookings.map((booking) =>
+                booking.id === id ? updatedBooking : booking
+            )
+            setBookings(updatedBookings)
+        }
+    }
+
+    function handleBookingUpdate(id: number) {
+        getUpdatedBooking(id)
+    }
 
     function closeDialog() {
         setDialogOpen(false)
@@ -97,6 +112,7 @@ export default function BookingOverview() {
                     booking={selectedBooking}
                     open={dialogOpen}
                     onClose={closeDialog}
+                    handleBookingUpdate={handleBookingUpdate}
                 />
             )}
         </div>

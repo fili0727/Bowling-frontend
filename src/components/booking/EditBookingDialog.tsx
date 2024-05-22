@@ -20,10 +20,12 @@ export default function EditBookingDialog({
     booking,
     open,
     onClose,
+    handleBookingUpdate,
 }: {
     booking: Booking | null
     open: boolean
     onClose: () => void
+    handleBookingUpdate: (id: number) => void
 }) {
     const [name, setName] = useState('')
     const [participants, setParticipants] = useState('')
@@ -31,7 +33,7 @@ export default function EditBookingDialog({
     const [openingHours, setOpeningHours] = useState<OpeningHours[]>([])
     const [dialogOpen, setDialogOpen] = useState(false)
     const [isEditing, setIsEditing] = useState(false)
-    const [editDate, setEditDate] = useState('')
+    const [editDate, setEditDate] = useState(booking?.bookingTime || '')
 
     useEffect(() => {
         if (booking) {
@@ -52,7 +54,7 @@ export default function EditBookingDialog({
         setDialogOpen(false)
     }
 
-    function saveEditedBooking(
+    async function saveEditedBooking(
         participants: string,
         name: string,
         editDate: string
@@ -65,7 +67,8 @@ export default function EditBookingDialog({
             bookingTime: editDate,
         }
 
-        updateBookingsApi(bookingToSave)
+        await updateBookingsApi(bookingToSave)
+        handleBookingUpdate(booking?.id || 0)
         onClose()
     }
 
