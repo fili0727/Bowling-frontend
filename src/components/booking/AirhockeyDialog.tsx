@@ -9,7 +9,7 @@ import {
 import DialogActions from '@mui/material/DialogActions'
 import Button from '@mui/material/Button'
 import StationDialogProps from '../../interfaces/props/StationDialogProps'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos'
 import ArrowBackIos from '@mui/icons-material/ArrowBackIos'
 
@@ -21,10 +21,14 @@ export default function StationDialog({
     openingHours,
     open,
     onClose,
+    isEditing,
+    setEditDate,
 }: StationDialogProps) {
     const today = new Date()
+
     const [startDate, setStartDate] = useState(new Date())
     const [selectedDate, setSelectedDate] = useState<Date | null>(null)
+    const [dialogOpen, setDialogOpen] = useState(false)
     const next7dates: Date[] = []
     const daysOfWeek: string[] = [
         'SUNDAY',
@@ -35,6 +39,10 @@ export default function StationDialog({
         'FRIDAY',
         'SATURDAY',
     ]
+
+    useEffect(() => {
+        setDialogOpen(open)
+    }, [open])
 
     for (let i = 0; i < 7; i++) {
         const date = new Date(startDate)
@@ -59,7 +67,7 @@ export default function StationDialog({
     }
 
     return (
-        <Dialog open={open} onClose={onClose}>
+        <Dialog open={dialogOpen} onClose={onClose}>
             <StyledDialogTitle>
                 {station.name} <p>Max amount of players: {station.capacity}</p>{' '}
                 <p>Air hockey</p>
@@ -111,6 +119,9 @@ export default function StationDialog({
                         date={selectedDate.toLocaleDateString()}
                         openingHours={openingHours}
                         station={station}
+                        isEditing={isEditing}
+                        setEditDate={setEditDate}
+                        setDialogOpen={setDialogOpen}
                     />
                 </StyledDialogContent>
             )}

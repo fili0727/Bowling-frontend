@@ -11,6 +11,7 @@ export default function AirhockeyList() {
     const [airhockey, setAirhockey] = useState<BookingLocation[]>([])
     const [openingHours, setOpeningHours] = useState<OpeningHours[]>([])
     const [dialogOpen, setDialogOpen] = useState(false)
+    const [isEditing, setIsEditing] = useState(false)
     const [selectedStation, setSelectedStation] =
         useState<BookingLocation | null>(null)
 
@@ -19,6 +20,7 @@ export default function AirhockeyList() {
         const stations = await getAirhockeyApi()
         setAirhockey(stations)
         setOpeningHours(openingHours)
+        setIsEditing(false)
     }
 
     useEffect(() => {
@@ -60,6 +62,8 @@ export default function AirhockeyList() {
                     openingHours={openingHours}
                     open={dialogOpen}
                     onClose={closeDialog}
+                    isEditing={isEditing}
+                    setEditDate={() => {}}
                 />
             )}
         </>

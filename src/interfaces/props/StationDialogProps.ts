@@ -6,4 +6,6 @@ export default interface StationDialogProps {
     openingHours: OpeningHours[]
     open: boolean
     onClose: () => void
+    isEditing: boolean
+    setEditDate: (date: string) => void
 }
