@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react'
 import '../styling/bookings-overview.css'
 import Booking from '../interfaces/Booking'
-import { getBookingByIdApi, getBookingsApi } from '../services/apiFacade'
+import {
+    deleteBookingByIdApi,
+    getBookingByIdApi,
+    getBookingsApi,
+} from '../services/apiFacade'
 import moment from 'moment'
 import EditBookingDialog from '../components/booking/EditBookingDialog'
 
@@ -41,6 +45,12 @@ export default function BookingOverview() {
     async function fetchBookings() {
         const bookingItems = await getBookingsApi()
         setBookings(bookingItems)
+    }
+
+    async function deleteBooking(id: number) {
+        await deleteBookingByIdApi(id)
+        const updatedBookings = bookings.filter((booking) => booking.id !== id)
+        setBookings(updatedBookings)
     }
 
     useEffect(() => {
@@ -99,7 +109,19 @@ export default function BookingOverview() {
                                         >
                                             Edit
                                         </button>
-                                        <button>Cancel</button>
+                                        <button
+                                            onClick={() => {
+                                                if (
+                                                    window.confirm(
+                                                        'Are you sure you want to delete this booking?'
+                                                    )
+                                                ) {
+                                                    deleteBooking(booking.id)
+                                                }
+                                            }}
+                                        >
+                                            Delete
+                                        </button>
                                     </div>
                                 </td>
                             </tr>

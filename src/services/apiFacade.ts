@@ -24,6 +24,13 @@ export async function getBookingByIdApi(id: number): Promise<Booking> {
     return await handleHttpErrors(response)
 }
 
+export async function deleteBookingByIdApi(id: number): Promise<void> {
+    const options = makeOptions('DELETE', null)
+    const response = await fetch(`${API_URL}/bookings/${id}`, options)
+
+    return await handleHttpErrors(response)
+}
+
 export async function getBookingLocationsApi(): Promise<BookingLocation[]> {
     const options = makeOptions('GET', null)
     const response = await fetch(`${API_URL}/bookingLocations`, options)
