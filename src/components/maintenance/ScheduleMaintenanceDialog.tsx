@@ -3,12 +3,22 @@ import {
     Dialog,
     DialogActions,
     DialogContent,
+    FormControl,
     InputLabel,
+    OutlinedInput,
     Select,
     TextField,
+    MenuItem,
 } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { StyledDialogTitle } from '../../styling/AirhockeyDialogStyling'
+import {
+    createMaintenanceItemApi,
+    getBookingLocationsApi,
+} from '../../services/apiFacade'
+import BookingLocation from '../../interfaces/BookingLocation'
+import moment from 'moment'
+import MaintenanceDto from '../../interfaces/MaintenanceDto'
 
 export default function ScheduleMaintenanceDialog({
     setDialogVisible,
@@ -20,10 +30,45 @@ export default function ScheduleMaintenanceDialog({
     const [date, setDate] = useState('')
     const [startTime, setStartTime] = useState('')
     const [endTime, setEndTime] = useState('')
+    const [locations, setLocations] = useState<BookingLocation[]>([])
+    const [selectedLocation, setSelectedLocation] = useState('')
+    const [errorMessage, setErrorMessage] = useState(false)
+
+    async function fetchLocations() {
+        const locations = await getBookingLocationsApi()
+        setLocations(locations)
+    }
+
+    async function handleSave() {
+        if (!date || !startTime || !endTime || !selectedLocation) {
+            setErrorMessage(true)
+            return
+        }
+
+        const formattedDate = moment(date).format('YYYY-MM-DD')
+
+        const maintenance: MaintenanceDto = {
+            date: formattedDate,
+            startTime,
+            endTime,
+            bookingLocationId: selectedLocation,
+        }
+        await createMaintenanceItemApi(maintenance)
+        setDialogVisible(false)
+    }
+
+    useEffect(() => {
+        fetchLocations()
+    }, [])
 
     return (
         <Dialog open={dialogVisible}>
             <StyledDialogTitle>Schedule maintenance</StyledDialogTitle>
+            {errorMessage && (
+                <p className="error-message-maintenance">
+                    Please fill out all fields
+                </p>
+            )}
             <DialogContent>
                 <TextField
                     label="Date"
@@ -58,11 +103,29 @@ export default function ScheduleMaintenanceDialog({
                 />
                 <br />
                 <br />
-                <InputLabel>Activity</InputLabel>
-                <Select style={{ width: 250 }}></Select>
+                <FormControl variant="outlined" style={{ width: 250 }}>
+                    <InputLabel htmlFor="location-label">Location</InputLabel>
+                    <Select
+                        value={selectedLocation}
+                        onChange={(e) => setSelectedLocation(e.target.value)}
+                        input={
+                            <OutlinedInput
+                                label="Location"
+                                id="location-label"
+                            />
+                        }
+                    >
+                        {locations.map((location) => (
+                            <MenuItem key={location.id} value={location.id}>
+                                {location.name}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
             </DialogContent>
             <DialogActions>
                 <Button onClick={() => setDialogVisible(false)}>Close</Button>
+                <Button onClick={handleSave}>Save</Button>
             </DialogActions>
         </Dialog>
     )
