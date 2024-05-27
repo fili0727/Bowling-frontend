@@ -28,7 +28,7 @@ export default function BookingsCalendar() {
 
     return {
       id: booking.id.toString(),
-      title: `${booking.name} (${booking.bookingLocation})`, // Adjust this as needed
+      title: `${booking.name} (${booking.bookingLocation.activityType})`, // Adjust this as needed
       start: start,
       end: end,
     };
