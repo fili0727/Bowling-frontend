@@ -2,9 +2,8 @@ import { NavLink, useLocation } from 'react-router-dom'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import BookOnlineIcon from '@mui/icons-material/BookOnline'
 import ExtensionIcon from '@mui/icons-material/Extension'
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import EventIcon from '@mui/icons-material/Event';
 import './styling/navBar.css'
+import BackHandIcon from '@mui/icons-material/BackHand'
 
 export default function NavBar() {
     const location = useLocation()
@@ -13,7 +12,9 @@ export default function NavBar() {
         <nav className="nav-header">
             <ul className="nav-header-ul">
                 <li
-                    className={location.pathname === '/booking' ? 'active-header' : ''}
+                    className={
+                        location.pathname === '/booking' ? 'active-header' : ''
+                    }
                 >
                     <NavLink to="/booking">
                         <ExtensionIcon />
@@ -40,27 +41,18 @@ export default function NavBar() {
                         <p>Bookings</p>
                     </NavLink>
                 </li>
-                  <li
+                <li
                     className={
-                        location.pathname === '/staff-schedule' ? 'active-header' : ''
+                        location.pathname === '/bookings-calender'
+                            ? 'active-header'
+                            : ''
                     }
                 >
-                    <NavLink to="/staff-schedule">
-                        <CalendarMonthIcon />
-                        <p>Staff Schedule</p>
+                    <NavLink to="/admin">
+                        <BackHandIcon />
+                        <p>Admin</p>
                     </NavLink>
                 </li>
-                 <li
-                    className={
-                        location.pathname === '/bookings-calender' ? 'active-header' : ''
-                    }
-                >
-                    <NavLink to="/bookings-calender">
-                        <EventIcon />
-                        <p>Bookings Caleneder</p>
-                    </NavLink>
-                </li>
-               
             </ul>
         </nav>
     )
