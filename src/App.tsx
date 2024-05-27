@@ -10,18 +10,17 @@ import BookingConfirmation from './components/booking/BookingConfirmation'
 import BookingOverview from './pages/BookingOverview'
 import Schedule from './pages/Schedule'
 import BookingsCalender from './pages/BookingsCalender'
-import { useLocation } from 'react-router-dom'
-import AdminPage from './pages/AdminLogin'
+// import { useLocation } from 'react-router-dom'
 import MaintenanceScheduling from './pages/MaintenanceScheduling'
 import Admin from './pages/Admin'
 
 export default function App() {
-    const location = useLocation()
+    // const location = useLocation()
 
-    // Define routes that should not use the Layout component
-    const noLayoutRoutes = ['/']
+    // // Define routes that should not use the Layout component
+    // const noLayoutRoutes = ['/']
 
-    const shouldUseLayout = !noLayoutRoutes.includes(location.pathname)
+    // const shouldUseLayout = !noLayoutRoutes.includes(location.pathname)
 
     return (
         <Layout>
