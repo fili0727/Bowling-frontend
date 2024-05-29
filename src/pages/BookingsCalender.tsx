@@ -1,4 +1,4 @@
-import BookingsCalenderView from '../components/BookingsCalender/BookingsCalenderView'
+import BookingsCalenderView from '../components/bookingsCalender/BookingsCalenderView'
 import { Fade } from '@mui/material'
 
 export default function BookingsCalender() {
