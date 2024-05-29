@@ -14,7 +14,6 @@
     color: #333; /* Dark gray color for the text */
     line-height: 1.6; /* Spacing between lines */
     text-align: left;
-    padding-bottom: 5vh;
 }
 
 .activities-welcome-text-paragraph {
@@ -23,7 +22,7 @@
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow around the paragraph */
     width: 70%;
-    margin-bottom: 10vh;
+    margin-bottom: 7vh;
 }
 
 .activities-welcome-text-container {
@@ -32,4 +31,27 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.activities-welcome-text-container p {
+    margin-right: 20vh;
+    margin-left: 20vh;
+}
+
+.act-head {
+    text-align: center;
+}
+
+.activities-welcome-text-container ol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.activities-welcome-text-container li {
+    font-size: 2.5vh;
+    color: #333; /* Dark gray color for the text */
+    margin-bottom: 1vh;
+    text-align: left;
 }

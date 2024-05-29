@@ -1,45 +1,46 @@
-.admin-container {
+.button-container-admin {
     display: flex;
     justify-content: center;
-    position: relative;
+    justify-content: space-around;
 }
 
-.admin-title {
-    margin-top: 15vh;
-    font-size: 8vh;
-}
-
-.admin-menu {
-    position: absolute;
-    top: 2vh;
-    right: 2vh;
-    display: flex;
-    flex-direction: column;
-    gap: 2vh;
-    background-color: rgba(0, 123, 255, 0.9);
-    padding: 2vh;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.admin-menu button {
-    background-color: white;
-    color: #007bff;
-    border: none;
-    padding: 1vh 2vh;
+.button-container-admin button {
+    margin: 10px;
+    padding: 10px;
+    width: 40vh;
     border-radius: 5px;
+    background-color: #f1f1f1;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 1.5vh;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    width: 100%;
 }
 
-.admin-menu button a {
+.button-container-admin button:hover {
+    background-color: #e1e1e1;
+}
+
+.button-container-admin button a {
     text-decoration: none;
-    color: #007bff;
-    display: block;
-    width: 100%;
-    height: 100%;
+    color: inherit;
+}
+
+.admin-text-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+    background-color: #f9f9f9; /* Light gray background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow around the paragraph */
+    margin-left: 50vh;
+    margin-right: 50vh;
+}
+
+.admin-text-container p {
+    font-size: 2.5vh;
+    margin-left: 20vh;
+    margin-right: 20vh;
+    color: #333; /* Dark gray color for the text */
+    line-height: 1.6; /* Spacing between lines */
+    text-align: left;
 }

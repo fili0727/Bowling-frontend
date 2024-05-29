@@ -10,10 +10,7 @@ export default function BookingUI() {
     return (
         <Fade in={true} timeout={1000}>
             <div className="booking-ui-container">
-                <div className="booking-ui-header">
-                    <h1>Activities</h1>
-                </div>
-
+                <WelcomeText />
                 <div className="activity-buttons-container">
                     <div className="activity-button-container">
                         <NavLink to="/dining">
@@ -31,7 +28,6 @@ export default function BookingUI() {
                         </NavLink>
                     </div>
                 </div>
-                <WelcomeText />
             </div>
         </Fade>
     )

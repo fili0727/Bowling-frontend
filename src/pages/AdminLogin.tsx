@@ -3,6 +3,7 @@ import BookingUI from './BookingUI'
 import { useState } from 'react'
 import '../styling/login.css'
 import { Fade } from '@mui/material'
+import '../styling/adminlogin.css'
 
 export default function AdminPage() {
     const [isLoggedIn, setLoggedIn] = useState<boolean>(false)
@@ -48,7 +49,7 @@ export default function AdminPage() {
                             boxShadow: '0px 0px 10px rgba(0,0,0,0.5)',
                         }}
                     >
-                        <h1>Big Bowl activity center. </h1>
+                        <h1>Welcome to 'Big Bowl activity center' </h1>
                         <div
                             style={{
                                 display: 'flex',
@@ -59,12 +60,17 @@ export default function AdminPage() {
                                 style={{
                                     marginTop: '20px',
                                     fontWeight: 'lighter',
+                                    marginLeft: '5vh',
+                                    marginRight: '5vh',
                                 }}
                             >
-                                We offer loads of fun activities for you and
-                                your friends to enjoy. Pick between bowling and
-                                airhockey or book a table in our dining area. We
-                                also offer more.
+                                By logging into this page you can administrate
+                                the bookings for the activity center. There are
+                                2 login options. You can either login as a user
+                                or as an admin. The admin can access the
+                                schedules and everything else. The user can only
+                                make bookings, search for bookings and sell
+                                drinks.
                             </p>
                         </div>
                         <button
