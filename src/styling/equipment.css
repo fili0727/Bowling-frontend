@@ -1,0 +1,76 @@
+body {
+  background-color: #ffffff;
+  color: #333333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.equipment-list-container {
+  margin: 20px;
+  text-align: center;
+}
+
+.equipment-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.equipmentItem {
+  background-color: #f9f9f9;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 16px;
+  width: calc(25% - 20px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.equipmentImage {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.equipmentName {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.equipmentStock {
+  color: #333333;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.equipmentButton {
+  background-color: #444444;
+  border: 1px solid #555555;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.equipmentButton:hover {
+  background-color: #555555;
+}
+
+.equipmentButton.edit {
+  background-color: #4caf50;
+}
+
+.equipmentButton.restock {
+  background-color: #2196f3;
+}
+
+.equipmentButton.restock:hover {
+  background-color: #1e88e5;
+}

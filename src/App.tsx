@@ -12,6 +12,7 @@ import Schedule from './pages/Schedule'
 import BookingsCalender from './pages/BookingsCalender'
 import { useLocation } from 'react-router-dom'
 import AdminPage from './pages/AdminLogin'
+import EquipmentPage from './pages/EquipmentPage'
 import Admin from './pages/Admin'
 import MaintenanceScheduling from './pages/MaintenanceScheduling'
 import ScheduleCalendar from './components/schedule/ScheduleCalender'
@@ -38,6 +39,8 @@ export default function App() {
                         <Route path="/airhockey" element={<AirhockeyList />} />
                         <Route path="/bookings" element={<BookingOverview />} />
                         <Route path="/staff-schedule" element={<Schedule />} />
+                        <Route path="/equipment" element={<EquipmentPage />} />
+                        <Route path="/bookings-calender" element={<BookingsCalender />} />
                         <Route
                             path="/bookings-calender"
                             element={<BookingsCalender />}
@@ -59,6 +62,7 @@ export default function App() {
                                 path="booking-schedule"
                                 element={<BookingsCalender />}
                             />
+                            <Route path="equipment" element={<EquipmentPage />} />
                         </Route>
                     </Routes>
                 </Layout>
@@ -73,6 +77,8 @@ export default function App() {
                     <Route path="/airhockey" element={<AirhockeyList />} />
                     <Route path="/bookings" element={<BookingOverview />} />
                     <Route path="/staff-schedule" element={<Schedule />} />
+                    <Route path="/equipment" element={<EquipmentPage />} />
+                    <Route path="/bookings-calender" element={<BookingsCalender />} />
                     <Route
                         path="/bookings-calender"
                         element={<BookingsCalender />}

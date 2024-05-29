@@ -53,6 +53,7 @@ export default function NavBar() {
                         <p>Admin</p>
                     </NavLink>
                 </li>
+       
             </ul>
         </nav>
     )
