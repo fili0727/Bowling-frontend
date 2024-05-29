@@ -43,6 +43,13 @@ export default function Admin() {
                             </NavLink>
                         </button>
                     </div>
+                       <div>
+                        <button onClick={handleShow}>
+                            <NavLink to="equipment">
+                                Go to equipment
+                            </NavLink>
+                        </button>
+                    </div>
                 </div>
                 {show && (
                     <div className="admin-text-container">

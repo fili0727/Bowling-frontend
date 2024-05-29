@@ -62,6 +62,7 @@ export default function App() {
                                 path="booking-schedule"
                                 element={<BookingsCalender />}
                             />
+                            <Route path="equipment" element={<EquipmentPage />} />
                         </Route>
                     </Routes>
                 </Layout>
