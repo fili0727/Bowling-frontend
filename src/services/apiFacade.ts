@@ -10,6 +10,7 @@ import Employee from '../interfaces/Employee'
 import NewShift from '../interfaces/NewShift'
 import BookingEditDto from '../interfaces/BookingEditDto'
 import Equipment from '../interfaces/Equipment'
+import MaintenanceDto from '../interfaces/MaintenanceDto'
 
 export async function getBookingsApi(): Promise<Booking[]> {
     const options = makeOptions('GET', null)
@@ -218,3 +219,13 @@ export async function editEquipmentStockApi(updatedEquipmentStock: Equipment):Pr
     return await handleHttpErrors(response)
 }
 
+//Maintenance
+
+export async function createMaintenanceItemApi(
+    maintenance: MaintenanceDto
+): Promise<void> {
+    const options = makeOptions('POST', maintenance)
+    const response = await fetch(`${API_URL}/maintenance`, options)
+
+    return await handleHttpErrors(response)
+}

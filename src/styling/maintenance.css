@@ -1,0 +1,52 @@
+.maintenance-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+.maintenance-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 5vh;
+}
+
+.schedule-maintenance-button button {
+    background-color: rgb(194, 194, 228);
+    border: 1px solid #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 45vh;
+}
+
+.schedule-maintenance-button button:hover {
+    background-color: rgb(174, 174, 218);
+}
+
+.see-maintenance-button button {
+    background-color: rgb(194, 194, 228);
+    border: 1px solid #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 45vh;
+}
+
+.see-maintenance-button button:hover {
+    background-color: rgb(174, 174, 218);
+}
+
+.error-message-maintenance {
+    color: red;
+    font-size: 2.5vh;
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}

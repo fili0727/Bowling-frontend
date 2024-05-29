@@ -5,7 +5,7 @@ body {
 }
 
 .booking-ui-container {
-    margin-top: 10vh;
+    margin-top: 5vh;
 }
 
 .booking-ui-header {
@@ -21,8 +21,8 @@ body {
 }
 
 .img-button {
-    width: 45vh;
-    height: 45vh;
+    width: 40vh;
+    height: 40vh;
     cursor: pointer;
     border-radius: 50%;
     transition: transform 0.5s;
