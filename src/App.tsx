@@ -12,14 +12,17 @@ import Schedule from './pages/Schedule'
 import BookingsCalender from './pages/BookingsCalender'
 import { useLocation } from 'react-router-dom'
 import AdminPage from './pages/AdminLogin'
+import Admin from './pages/Admin'
+import MaintenanceScheduling from './pages/MaintenanceScheduling'
+import ScheduleCalendar from './components/schedule/ScheduleCalender'
 
 export default function App() {
-    const location = useLocation();
+    const location = useLocation()
 
     // Define routes that should not use the Layout component
-    const noLayoutRoutes = ['/'];
+    const noLayoutRoutes = ['/']
 
-    const shouldUseLayout = !noLayoutRoutes.includes(location.pathname);
+    const shouldUseLayout = !noLayoutRoutes.includes(location.pathname)
 
     return (
         <>
@@ -35,11 +38,28 @@ export default function App() {
                         <Route path="/airhockey" element={<AirhockeyList />} />
                         <Route path="/bookings" element={<BookingOverview />} />
                         <Route path="/staff-schedule" element={<Schedule />} />
-                        <Route path="/bookings-calender" element={<BookingsCalender />} />
+                        <Route
+                            path="/bookings-calender"
+                            element={<BookingsCalender />}
+                        />
                         <Route
                             path="/booking_confirmation"
                             element={<BookingConfirmation />}
                         />
+                        <Route path="/admin" element={<Admin />}>
+                            <Route
+                                path="maintenance-schedule"
+                                element={<MaintenanceScheduling />}
+                            />
+                            <Route
+                                path="staff-schedule"
+                                element={<ScheduleCalendar />}
+                            />
+                            <Route
+                                path="booking-schedule"
+                                element={<BookingsCalender />}
+                            />
+                        </Route>
                     </Routes>
                 </Layout>
             ) : (
@@ -53,7 +73,10 @@ export default function App() {
                     <Route path="/airhockey" element={<AirhockeyList />} />
                     <Route path="/bookings" element={<BookingOverview />} />
                     <Route path="/staff-schedule" element={<Schedule />} />
-                    <Route path="/bookings-calender" element={<BookingsCalender />} />
+                    <Route
+                        path="/bookings-calender"
+                        element={<BookingsCalender />}
+                    />
                     <Route
                         path="/booking_confirmation"
                         element={<BookingConfirmation />}
@@ -61,5 +84,5 @@ export default function App() {
                 </Routes>
             )}
         </>
-    );
+    )
 }

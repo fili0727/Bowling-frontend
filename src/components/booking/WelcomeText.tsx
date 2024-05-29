@@ -4,14 +4,20 @@ export default function WelcomeText() {
     return (
         <div className="activities-welcome-text-container">
             <div className="activities-welcome-text-paragraph">
+                <h1 className="act-head">Welcome</h1>
                 <p className="activities-welcome-text-container-p">
-                    Welcome to our vibrant activity center! We've got something
-                    for everyone. Click on any of the activities to learn more
-                    about them and to book a time slot. We recommend booking in
-                    advance to ensure your spot.
+                    This is the place to chose the activity that the guest would
+                    like to book. They can chose between dining, air hockey or
+                    bowling. There is also further information when clicking
+                    into the activity.
                 </p>
+                <ol>
+                    <li>Click on the dining table to book a table.</li>
+                    <li>Click on the air hockey table to book it.</li>
+                    <li>Click on the bowling lane to book a lane.</li>
+                </ol>
             </div>
-            <div className="activities-welcome-text-paragraph">
+            {/* <div className="activities-welcome-text-paragraph">
                 <h2 className="activities-welcome-text-container-h2">
                     Air Hockey
                 </h2>
@@ -39,7 +45,7 @@ export default function WelcomeText() {
                     setting. Enjoy a meal by candlelight and make your evening
                     extra special.
                 </p>
-            </div>
+            </div> */}
         </div>
     )
 }
