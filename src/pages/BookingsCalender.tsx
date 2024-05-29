@@ -1,5 +1,5 @@
 
-import BookingsCalenderView from "../components/bookingsCalender/BookingsCalenderView"
+import BookingsCalenderView from "../components/BookingsCalender/BookingsCalenderView"
 
 export default function BookingsCalender() {
 
