@@ -12,6 +12,7 @@ import Schedule from './pages/Schedule'
 import BookingsCalender from './pages/BookingsCalender'
 import { useLocation } from 'react-router-dom'
 import AdminPage from './pages/AdminLogin'
+import EquipmentPage from './pages/EquipmentPage'
 
 export default function App() {
     const location = useLocation();
@@ -35,6 +36,7 @@ export default function App() {
                         <Route path="/airhockey" element={<AirhockeyList />} />
                         <Route path="/bookings" element={<BookingOverview />} />
                         <Route path="/staff-schedule" element={<Schedule />} />
+                        <Route path="/equipment" element={<EquipmentPage />} />
                         <Route path="/bookings-calender" element={<BookingsCalender />} />
                         <Route
                             path="/booking_confirmation"
@@ -53,6 +55,7 @@ export default function App() {
                     <Route path="/airhockey" element={<AirhockeyList />} />
                     <Route path="/bookings" element={<BookingOverview />} />
                     <Route path="/staff-schedule" element={<Schedule />} />
+                    <Route path="/equipment" element={<EquipmentPage />} />
                     <Route path="/bookings-calender" element={<BookingsCalender />} />
                     <Route
                         path="/booking_confirmation"

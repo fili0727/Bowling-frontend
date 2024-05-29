@@ -9,6 +9,7 @@ import Schedule from '../interfaces/Schedule'
 import Employee from '../interfaces/Employee'
 import NewShift from '../interfaces/NewShift'
 import BookingEditDto from '../interfaces/BookingEditDto'
+import Equipment from '../interfaces/Equipment'
 
 export async function getBookingsApi(): Promise<Booking[]> {
     const options = makeOptions('GET', null)
@@ -186,3 +187,34 @@ export async function addEmployeeApi(employee: Employee): Promise<Employee> {
 
     return await handleHttpErrors(response)
 }
+
+//Equipment
+
+export async function getEquipmentApi(): Promise<Equipment[]> {
+    const options = makeOptions('GET', null)
+    const response = await fetch(`${API_URL}/equipment`, options)
+
+    return await handleHttpErrors(response)
+}
+
+export async function addEquipmentApi(equipment: Equipment): Promise<Equipment> {
+    const options = makeOptions('POST', equipment)
+    const response = await fetch(`${API_URL}/equipment`, options)
+
+    return await handleHttpErrors(response)
+}
+
+export async function editEquipmentStockApi(updatedEquipmentStock: Equipment):Promise<Equipment>{
+    if (!updatedEquipmentStock.id) {
+        throw new Error('Equipment must have an id to be updated')
+    }
+
+    const options = makeOptions('PATCH', updatedEquipmentStock)
+    const response = await fetch(
+        `${API_URL}/equipment/${updatedEquipmentStock.id}`,
+        options
+    )
+
+    return await handleHttpErrors(response)
+}
+

@@ -1,4 +1,4 @@
-import Login from "../components/Login/Login"
+import Login from "../components/login/Login"
 import BookingUI from "./BookingUI"
 import { useState } from 'react';
 import '../styling/login.css'
